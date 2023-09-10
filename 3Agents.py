@@ -10,10 +10,10 @@ currently in development and not completed yet''')
 class AIAgent:
 	def __init__(self, name):
 		self.name = name
-		#Jobs
+		# Jobs
 		self.job = random.choice(
 			['teacher', 'chef', 'gardener', 'painter', 'musician', 'doctor', 'engineer', 'AI developer'])
-                #Activities in jobs
+		# Activities in jobs
 		if self.job == 'teacher':
 			self.skills = ['preparing lesson', 'grading assignments', 'teaching class', 'meeting with parents',
 			               'organizing field trips', 'attending seminars']
@@ -38,7 +38,7 @@ class AIAgent:
 		else:  # AI developer
 			self.skills = ['coding AI algorithms', 'training machine learning models', 'optimizing neural networks',
 			               'debugging code', 'attending AI conferences', 'reading AI research papers']
-	
+
 	def choose_best_activity(self):
 		# Assign a random value to each skill
 		skill_values = {skill: random.random() for skill in self.skills}
@@ -46,7 +46,7 @@ class AIAgent:
 		best_skill = max(skill_values, key=skill_values.get)
 		self.skills.remove(best_skill)  # remove the chosen skill so it won't be repeated
 		return best_skill
-	
+
 	def simulate_day(self):
 		print(f"\nSimulating {self.name}'s day as a {self.job}:")
 		for _ in range(3):  # each agent does 3 activities in the morning
@@ -57,7 +57,8 @@ class AIAgent:
 		print(f'{self.name} is {activity} in the {time_of_day}...')
 		time.sleep(2)  # simulate time taken for activity
 
-#names. the lists are long for less chance of repeating same names
+
+# names. the lists are long for less chance of repeating same names
 def firstnames():
 	return ["John", "David", "Michael", "William", "James", "Robert", "Charles", "George", "Thomas", "Joseph",
 	        "Benjamin", "Daniel", "Christopher", "Matthew", "Lucas", "Alexander", "Noah", "Ethan", "Jacob", "William",
@@ -109,7 +110,8 @@ def simulate_day(agent):
 	                  'taking a nice warm shower', 'being bored', 'doing something interesting',
 	                  'drinking a cool lemonade',
 	                  'making a to-do list', 'getting the news', "in bathroom {don't interrupt}",
-	                  'drinking a nice cup of tea', 'just chilling', 'spending itme with family', 'playing a video game']
+	                  'drinking a nice cup of tea', 'just chilling', 'spending itme with family',
+	                  'playing a video game']
 	print(f'{random.choice(fun_activities)} in the evening...')
 	time.sleep(3)
 	print(f'{agent.name} is having dinner...')
