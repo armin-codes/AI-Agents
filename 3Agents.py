@@ -2,7 +2,7 @@ import random
 import time
 
 print('''
-Ai Agents Version 0.5
+Ai Agents Version 0.6
 Writer of code: Armin Samiani
 currently in development and not completed yet''')
 
@@ -10,9 +10,10 @@ currently in development and not completed yet''')
 class AIAgent:
 	def __init__(self, name):
 		self.name = name
+		#Jobs
 		self.job = random.choice(
 			['teacher', 'chef', 'gardener', 'painter', 'musician', 'doctor', 'engineer', 'AI developer'])
-
+                #Activities in jobs
 		if self.job == 'teacher':
 			self.skills = ['preparing lesson', 'grading assignments', 'teaching class', 'meeting with parents',
 			               'organizing field trips', 'attending seminars']
@@ -37,7 +38,7 @@ class AIAgent:
 		else:  # AI developer
 			self.skills = ['coding AI algorithms', 'training machine learning models', 'optimizing neural networks',
 			               'debugging code', 'attending AI conferences', 'reading AI research papers']
-
+	
 	def choose_best_activity(self):
 		# Assign a random value to each skill
 		skill_values = {skill: random.random() for skill in self.skills}
@@ -45,7 +46,7 @@ class AIAgent:
 		best_skill = max(skill_values, key=skill_values.get)
 		self.skills.remove(best_skill)  # remove the chosen skill so it won't be repeated
 		return best_skill
-
+	
 	def simulate_day(self):
 		print(f"\nSimulating {self.name}'s day as a {self.job}:")
 		for _ in range(3):  # each agent does 3 activities in the morning
@@ -56,7 +57,7 @@ class AIAgent:
 		print(f'{self.name} is {activity} in the {time_of_day}...')
 		time.sleep(2)  # simulate time taken for activity
 
-
+#names. the lists are long for less chance of repeating same names
 def firstnames():
 	return ["John", "David", "Michael", "William", "James", "Robert", "Charles", "George", "Thomas", "Joseph",
 	        "Benjamin", "Daniel", "Christopher", "Matthew", "Lucas", "Alexander", "Noah", "Ethan", "Jacob", "William",
@@ -83,22 +84,18 @@ def lastnames():
 	        "Berry"]
 
 
-def gfn():
+def get_name():
 	fname = random.choice(firstnames())
 	lname = random.choice(lastnames())
 	full_name = fname + " " + lname
 	return full_name
 
 
-def pgfn():
-	print(gfn())
-
-
 def simulate_day(agent):
 	print(f"""\nSimulating [ {agent.name} ] day as a {agent.job}:
 """)
-	time.sleep(5)
-	for _ in range(3):  # each agent does 3 activities in the morning
+	time.sleep(4)
+	for _ in range(2):  # each agent does 2 activities in the morning
 		activity = agent.choose_best_activity()
 		agent.perform_activity(activity, "morning")
 	print(f'{agent.name} is having lunch...')
@@ -120,19 +117,8 @@ def simulate_day(agent):
 	print(f'got to bed... Good night! zZZ')
 
 
-def best_action_for_teacher(goals, constraints, possible_actions):
-	best_action = None
-	best_score = -float('inf')
-	for action in possible_actions:
-		score = calculate_score(action, goals, constraints)
-		if score > best_score:
-			best_action = action
-			best_score = score
-	return best_action
-
-
 # create 3 AI agents
-agents = [AIAgent(gfn()), AIAgent(gfn()), AIAgent(gfn())]
+agents = [AIAgent(get_name()), AIAgent(get_name()), AIAgent(get_name())]
 
 # simulate each agent's day
 for agent in agents:
