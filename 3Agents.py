@@ -134,9 +134,9 @@ def simulate_day():
 
 
 def simulate_morning():
-	print(f"""{agent.name} is {random_routine()} before work.\n""")
+	print(f"{agent.name} is {random_routine()} before work.\n")
 	time.sleep(5)
-	print(f"""{agent.name} wants to go to work\n""")
+	print(f"{agent.name} wants to go to work\n")
 	time.sleep(2.5)
 	loading()
 	for x in range(3):  # each agent does 3 activities in the morning
@@ -153,9 +153,9 @@ def simulate_morning():
 	                  "in bathroom, don't interrupt", 'watching a movie', 'playing a game', 'just chilling'
 	                  'taking a nice warm shower', 'being bored', 'doing something interesting',
 	                  'drinking a nice cup of tea', 'making a to-do list', 'getting the news']
-	print(f'{agent.name} is {random.choice(fun_activities)} in the evening.')
+	print(f"{agent.name} is {random.choice(fun_activities)} in the evening.")
 	time.sleep(3)
-	print(f'{agent.name} is having {random_food()} for dinner.')
+	print(f"{agent.name} is having {random_food()} for dinner.")
 	time.sleep(3)
 	print(f'''{agent.name} going to bed. Good night!
 ''')
