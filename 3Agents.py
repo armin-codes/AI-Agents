@@ -137,15 +137,14 @@ def loading():
 
 
 def simulate_day():
-	print(f"""Simulating [ {agent.name} ] day as a {agent.job}:
-""")
+	print(f"Simulating [ {agent.name} ] day as a {agent.job}:\n")
 	time.sleep(2)
 
 
 def simulate_morning():
-	print(f"""{agent.name} is {random_routine()} before work.\n""")
-	time.sleep(5)
-	print(f"""{agent.name} wants to go to work\n""")
+	print(f"{agent.name} is {random_routine()} before work.\n")
+	time.sleep(3)
+	print(f"{agent.name} wants to go to work\n")
 	time.sleep(2.5)
 	loading()
 	for x in range(3):  # each agent does 3 activities in the morning
@@ -167,8 +166,7 @@ def simulate_morning():
 	time.sleep(3)
 	print(f'{agent.name} is having {random_food()} for dinner.')
 	time.sleep(3)
-	print(f'''{agent.name} going to bed. Good night!
-''')
+	print(f'{agent.name} going to bed. Good night!\n')
 
 
 agents = [AIAgent(get_name()) for a in range(3)]  # create 3 AI agents
