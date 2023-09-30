@@ -1,28 +1,71 @@
-import time, sys, random
+import time
+import sys
+import random
+# The names
+man_names = ["John", "David", "William", "James", "Robert", "Charles", "George", "Thomas", "Vincent", 'Jesse',
+             "Benjamin", "Daniel", "Christopher", "Matthew", "Lucas", "Jacob", "William", "Gabriel", 'Hank',
+             "Henry", "Samuel", "Logan", "Nathan", "Anthony", "Dylan", "Christian", "Gabriel", "Lucas",
+             "Aiden", "Elijah", "Mason", "Kevin", "Lincoln", "Grayson", "Brad", "Mason", "Chris", "Mehran",
+             "Mikael", "Vlad", 'Billiam', "Leonardo", 'Billy', 'Willy' "Oliver", "Farbod", "Darius", "Aren",
+             "Freddy", "James", "Joseph", "Robert", "Alexander", "Victor", "Lance", "Mr.", "Stanley", "Roman",
+             "Rahim", "Al", "Quentin", "Bobby", "Levi", "Lincoln", "Bart", "Leo", 'Mike', 'Will', 'Saul',
+             "Joshua", "Ryan", "Noah", "Ethan", "Bret", "Clint", 'Walter', "Jebediah", "Lester", "Dwight",
+             "Henry", "Anthony", "Caleb", "Dylan", "Michael", "Peter", "Timothy", "Jimothy", "Sam", 'Bill',
+             "Obediah", "Gill", "Aster", "Frank", "Franklin", "Aiden", "Agent.", 'Gabe', 'Martin', 'Todd', ]
+
+woman_names = ["Mary", "Jessica", "Sarah", "Lisa", "Jennifer", "Amanda", "Ashley", "Emily", "Samantha", "Brittany",
+               "Anna", "Susan", "Danielle", "Amy", "Andrea", "Stephanie", "Michelle", "Aurora", "Autumn", "Erica",
+               "Nicole", "Megan", "Katherine", "Elizabeth", "Lauren", "Victoria", "Rachel", "Barbara", "Claire",
+               "Christine", "Rebecca", "Amanda", "Deborah", "Sharon", "Kimberly", "Patricia", "Laura", "Linda",
+               "Barbara", "Abigail", "Addison", "Alexandra", "Alice", "Allison", "Alyssa", "Amber", "Amelia",
+               "Diana"
+               "Angela", "Annabelle", "Ariel", "Ashley", "Audrey", "Beatrice", "Bella", "Clara", "Daisy", "Ella",
+               "Brittany", "Brooke", "Caroline", "Charlotte", "Chloe", "Christina", "Evelyn" "Emily", "Emma",
+               "Dorothy", "Eleanor", "Elizabeth"]
+
+lastnames = ["Daniels", "Johnson", "Anderson", "Miller", "Wilson", "Moore", "Taylor", "Bernard", "Hill", "Jayson",
+             "Thomas", "Jackson", "White", "Harris", "Martin", "Thompson", "Garcia", "Martinez", "Walker",
+             "Peterson"
+             'Kennedy', "Clinton", "Philip", "Brown", "Jones", "Davis", "Robinson", "Scott", "Torres", "Murphy",
+             "Franklin",
+             "Lewis", "Lee", "Walker", "Hall", "Allen", "Young", "Hernandez", "Wright", "King", "Murphy", "Rivera",
+             "Westwood", "Howard", "Pitt", "Smith", "Williams", "Hudson", "Turner", "Green", "Carter", "Bell",
+             "Adams", "Baker", "Gonzalez", "Nelson", "Carter", "Morgan", "Perez", "Berry", "Campbell", "Phelps",
+             "Morris", "Eastwood", "Wallace", "Phillips", "Cruz", "Ward", 'White', "Black", "Scott", "Palmer"]
 
 
 class AIAgent:
 	def __init__(self, name):
 		self.name = name
-		self.job = random.choice(['teacher', 'chef', 'gardener', 'painter', 'musician', 'doctor', 'engineer', 'AI developer'])
+		self.job = random.choice(
+			['teacher', 'chef', 'gardener', 'painter', 'musician', 'doctor', 'engineer', 'AI developer'])
+
 		if self.job == 'teacher':
 			self.skills = ['preparing lesson', 'grading assignments', 'teaching class', 'meeting with parents',
 			               'organizing field trips️', 'attending seminars', 'creating learning materials',
 			               'motivating students', 'managing a classroom']
+
 		elif self.job == 'chef':
-			self.skills = ['preparing ingredients', 'cooking meal', 'plating dish', 'cleaning kitchen', 'operating kitchen equipment'
+			self.skills = ['preparing ingredients', 'cooking meal', 'plating dish', 'cleaning kitchen',
+			               'operating kitchen equipment'
 			               'creating new recipes', 'ordering supplies', 'tasting food', 'developing flavor profiles']
 
 		elif self.job == 'gardener':
 			self.skills = ['planting seeds', 'watering plants', 'pruning plants', 'harvesting produce',
 			               'weeding garden beds', 'applying fertilizers', 'identifying plant diseases',
 			               'controlling pests', 'creating sustainable gardens']
+
 		elif self.job == 'painter':
-			self.skills = ['using different painting techniques' 'cleaning brushes', 'preparing canvases', 'painting', 'sketching',
-			               'visiting art galleries', 'understanding art history', 'creating interesting paintings', 'mixing colors',]
+			self.skills = ['using different painting techniques' 'cleaning brushes', 'preparing canvases', 'painting',
+			               'sketching',
+			               'visiting art galleries', 'understanding art history', 'creating interesting paintings',
+			               'mixing colors', ]
+
 		elif self.job == 'musician':
-			self.skills = ['practicing instrument', 'composing song', 'recording music', 'playing instruments', 'composing for different ensembles'
+			self.skills = ['practicing instrument', 'composing song', 'recording music', 'playing instruments',
+			               'composing for different ensembles'
 			               'performing in the streets', 'tuning instruments', 'learning new pieces', 'reading music']
+
 		elif self.job == 'doctor':
 			self.skills = ['consulting patients', 'diagnosing illnesses', 'prescribing medication',
 			               'managing a medical practice', 'conducting medical research' 'providing patient care',
@@ -31,7 +74,9 @@ class AIAgent:
 		elif self.job == 'engineer':
 			self.skills = ['designing structures', 'calculating loads and stresses', 'inspecting construction sites',
 			               'using 3D printing', 'designing sustainable structures', 'working with robotics'
-			               'ensuring safety regulations', 'drafting blueprints', 'collaborating with architects']
+			                                                                        'ensuring safety regulations',
+			               'drafting blueprints', 'collaborating with architects']
+
 		else:  # AI developer
 			self.skills = ['coding AI algorithms', 'training machine learning models', 'optimizing neural networks',
 			               'creating computer vision systems',
@@ -39,7 +84,6 @@ class AIAgent:
 			               'working with big data', 'developing natural language processing models']
 
 	def choose_best_activity(self):
-
 		skills = self.skills.copy()  # Create a local copy of the skills list
 
 		skill_values = [(skill, random.random()) for skill in
@@ -77,35 +121,7 @@ def random_routine():  # Returns random morning routine
 
 
 def get_name():  # Returns a random first and last name
-	man_names = ["John", "David", "William", "James", "Robert", "Charles", "George", "Thomas", "Vincent", 'Jesse',
-	             "Benjamin", "Daniel", "Christopher", "Matthew", "Lucas", "Jacob", "William", "Gabriel", 'Hank',
-	             "Henry", "Samuel", "Logan", "Nathan", "Anthony", "Dylan", "Christian", "Gabriel", "Lucas",
-	             "Aiden", "Elijah", "Mason", "Kevin", "Lincoln", "Grayson", "Brad", "Mason", "Chris", "Mehran",
-	             "Mikael", "Vlad", 'Billiam', "Leonardo", 'Billy', 'Willy' "Oliver", "Farbod", "Darius", "Aren",
-	             "Freddy", "James", "Joseph", "Robert", "Alexander", "Victor", "Lance", "Mr.", "Stanley", "Roman",
-	             "Rahim", "Al", "Quentin", "Bobby", "Levi", "Lincoln", "Bart", "Leo", 'Mike', 'Will',
-	             "Joshua", "Ryan", "Noah", "Ethan", "Bret", "Clint", 'Walter', "Jebediah", "Lester", "Dwight",
-	             "Henry", "Anthony", "Caleb", "Dylan", "Michael", "Peter", "Timothy", "Jimothy", "Sam", 'Bill',
-	             "Obediah", "Gill", "Aster", "Frank", "Franklin", "Aiden", "Agent.", 'Gabe', 'Martin', 'Todd', ]
 
-	woman_names = ["Mary", "Jessica", "Sarah", "Lisa", "Jennifer", "Amanda", "Ashley", "Emily", "Samantha", "Brittany",
-	               "Anna", "Susan", "Danielle", "Amy", "Andrea", "Stephanie", "Michelle", "Aurora", "Autumn", "Erica",
-	               "Nicole", "Megan", "Katherine", "Elizabeth", "Lauren", "Victoria", "Rachel", "Barbara", "Claire",
-	               "Christine", "Rebecca", "Amanda", "Deborah", "Sharon", "Kimberly", "Patricia", "Laura", "Linda",
-	               "Barbara", "Abigail", "Addison", "Alexandra", "Alice", "Allison", "Alyssa", "Amber", "Amelia", "Diana"
-	               "Angela", "Annabelle", "Ariel", "Ashley", "Audrey", "Beatrice", "Bella", "Clara", "Daisy", "Ella",
-	               "Brittany", "Brooke", "Caroline", "Charlotte", "Chloe", "Christina", "Evelyn" "Emily", "Emma",
-	               "Dorothy", "Eleanor", "Elizabeth"]
-
-	lastnames = ["Daniels", "Johnson", "Anderson", "Miller", "Wilson", "Moore", "Taylor", "Bernard", "Hill", "Jayson",
-	             "Thomas", "Jackson", "White", "Harris", "Martin", "Thompson", "Garcia", "Martinez", "Walker",
-	             "Peterson"
-	             'Kennedy', "Clinton", "Philip", "Brown", "Jones", "Davis", "Robinson", "Scott", "Torres", "Murphy",
-	             "Franklin",
-	             "Lewis", "Lee", "Walker", "Hall", "Allen", "Young", "Hernandez", "Wright", "King", "Murphy", "Rivera",
-	             "Westwood", "Howard", "Pitt", "Smith", "Williams", "Hudson", "Turner", "Green", "Carter", "Bell",
-	             "Adams", "Baker", "Gonzalez", "Nelson", "Carter", "Morgan", "Perez", "Berry", "Campbell", "Phelps",
-	             "Morris", "Eastwood", "Wallace", "Phillips", "Cruz", "Ward", 'White', "Black", "Scott", "Palmer"]
 	random.shuffle(man_names)  # Randomize the lists of first and last names.
 	random.shuffle(woman_names)
 	random.shuffle(lastnames)
@@ -121,13 +137,13 @@ def random_transport():
 	return rand_transport
 
 
-def print_dots():
+def print_dots(): # Add lines every second
 	sys.stdout.write("-")
 	sys.stdout.flush()
 
 
 def loading():
-	sys.stdout.write(random_transport())
+	sys.stdout.write(random_transport()) # Add lines every second Until arrived at ---> work
 	num_dots = 1
 	while num_dots <= 10:
 		print_dots()
@@ -138,7 +154,7 @@ def loading():
 
 def simulate_day():
 	print(f"Simulating [ {agent.name} ] day as a {agent.job}:\n")
-	time.sleep(2)
+
 
 
 def simulate_morning():
@@ -172,5 +188,7 @@ def simulate_morning():
 agents = [AIAgent(get_name()) for a in range(3)]  # create 3 AI agents
 
 for agent in agents:  # simulate each agent's day
+	time.sleep(1)
 	simulate_day()
+	time.sleep(2)
 	simulate_morning()
